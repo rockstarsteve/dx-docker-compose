@@ -2,9 +2,10 @@ version: '3'
 services:
   nginx:
     image: nginx:1.21.6
+    container_name: nginx
+    # privileged: true
     ports:
       - 80:80
-    container_name: nginx
     volumes:
       - /project/docker-compose/nginx/www/webroot:/webroot
       - /project/docker-compose/nginx/conf.d:/etc/nginx/conf.d
