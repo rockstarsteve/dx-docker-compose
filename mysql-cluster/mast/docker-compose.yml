@@ -3,17 +3,17 @@ services:
   mysql:
     image: mysql:latest
     restart: always
-    container_name: mysql
+    container_name: mysql_master
     ports:
-      - '3306:3306'
+      - '3316:3306'
     environment:
       TZ: 'Asia/Shanghai'
       MYSQL_ROOT_PASSWORD: 'root'
     command: --default-authentication-plugin=mysql_native_password
     volumes:
-      - /project/docker-compose/mysql/data:/var/lib/mysql
+      - /project/docker-compose/mysql-cluster/mast/data:/var/lib/mysql
       # 配置文件映射(所有.cnf 为后缀的文件都会被映射到/etc/mysql/conf.d目录下)
-      - /project/docker-compose/mysql/config:/etc/mysql/conf.d
+      - /project/docker-compose/mysql-cluster/mast/config:/etc/mysql/conf.d
       # mysql容器和宿主机时间同步，且不能修改
       - /etc/localtime:/etc/localtime:ro
 

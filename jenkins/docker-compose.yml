@@ -1,10 +1,8 @@
 version: '3'
 services:
   jenkins:
-    # restart: always
     image: jenkins/jenkins
     container_name: jenkins    
-    privileged: true
     user: root
     environment:
       - TZ=Asia/Shanghai
@@ -12,7 +10,13 @@ services:
       - 8090:8080
       - 50000:50000
     volumes:
-      - /project/docker-compose/jenkins/etc/localtime:/etc/localtime
-      - /project/docker-compose/jenkins/opt/jenkins/data:/var/jenkins_home
-      - /project/docker-compose/jenkins/var/run/docker.sock:/var/run/docker.sock
-      - /project/docker-compose/jenkins/usr/bin/docker:/usr/bin/docker
+      - /project/docker-compose/jenkins/data/:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+      - /usr/lib/x86_64-linux-gnu/libltdl.so.7:/usr/lib/x86_64-linux-gnu/libltdl.so.7
+
+
+# 获取Jenkins初始化密码（也可以查看打印日志）
+# docker exec -it myjenkins /bin/bash      
+# cd /var/jenkins_home/secrets
+# cat  initialAdminPassword
