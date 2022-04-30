@@ -1,0 +1,13 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:1.21.6
+    ports:
+      - 80:80
+    container_name: nginx
+    volumes:
+      - /project/docker-compose/nginx/www/webroot:/webroot
+      - /project/docker-compose/nginx/conf.d:/etc/nginx/conf.d
+      - ./logs:/var/log/nginx
+      #若用到ssl，可以引入
+      # - ./ssl:/ssl_certs

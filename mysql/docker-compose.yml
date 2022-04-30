@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    restart: always
+    ports:
+      - '3306:3306'
+    command: --default-authentication-plugin=caching_sha2_password
+    volumes:
+      - /project/docker-compose/mysql/mysql/conf/my.conf:/etc/mysql/conf.d/my.conf
+      - /project/docker-compose/mysql/mysql/mysqldb:/var/lib/mysql
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
