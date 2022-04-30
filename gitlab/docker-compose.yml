@@ -1,7 +1,7 @@
 version: '3'
 services:
   gitlab:
-    image: gitlab/gitlab-ce:nightly
+    image: gitlab/gitlab-ce
     container_name: gitlab
     environment:
       TZ: 'Asia/Shanghai'
