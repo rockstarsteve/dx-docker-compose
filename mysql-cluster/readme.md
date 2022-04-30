@@ -1,23 +1,40 @@
-### 主库创建复制用户
+# 给予远程用户所有表所有权限
 
-1. CREATE USER 'woniu'@'%' IDENTIFIED WITH mysql_native_password BY 'woniu123456';
-2.  
-3. GRANT REPLICATION SLAVE ON *.* TO 'woniu'@'%';
+GRANT ALL ON *.* TO 'root'@'%';
 
-### 查看 master 机器的状态
+# 更改加密规则
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY '123456' PASSWORD EXPIRE NEVER;
+
+# 远程访问
+
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
+
+# 刷新权限
+
+flush privileges;
+
+
+
+
+
+# 建议主从同步时候不要建同步的数据库！！！
+
+### 1.查看 master 机器的状态
 
 SHOW MASTER STATUS
 
-### 从库设置 master 的信息
+### 2.从库设置 master 的信息
 
 CHANGE MASTER TO
-MASTER_HOST='172.0.0.5',
-MASTER_USER='woniu',
-MASTER_PASSWORD='woniu123456',
-MASTER_LOG_FILE='mysql-bin.000003',
-MASTER_LOG_POS=1163;
+MASTER_HOST='127.0.0.1',
+MASTER_PORT=3316,
+MASTER_USER='root',
+MASTER_PASSWORD='root',
+MASTER_LOG_FILE='mysql-bin.000003',  # 从1中查看到的file的数据放这
+MASTER_LOG_POS=1163;        # 从1中查看到的position的数据放这
 
-### 开始同步
+### 3.开始同步
 
 1. 开始同步
 
@@ -26,3 +43,9 @@ MASTER_LOG_POS=1163;
 2.   同步状态
 
    show slave status;
+   
+3. 如果有错误
+
+   1. 先停掉slave，然后跳过错误步数，再启动slave
+      1. stop slave     
+      2. set global [sql](https://www.jb51.cc/tag/sql/)_slave_skip_counter=1; 
