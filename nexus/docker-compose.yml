@@ -3,9 +3,11 @@ services:
   nexus:
     image: sonatype/nexus3
     container_name: nexus
+    privileged: true
     ports:
-      - 8081:8081
+      - 8092:8081
+      - 5000:5000
     environment:
       TZ: Asia/Shanghai
     volumes:
-      - /project/docker-compose/nexus/nexus-data:/nexus-data
+      - /project/docker-compose/nexus/data:/nexus-data
