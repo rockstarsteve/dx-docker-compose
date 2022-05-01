@@ -7,8 +7,11 @@ services:
     ports:
       - 80:80
     volumes:
-      - /project/docker-compose/nginx/www/webroot:/webroot
-      - /project/docker-compose/nginx/conf.d:/etc/nginx/conf.d
-      - ./logs:/var/log/nginx
+      # 映射nginx的配置文件到容器里
+      - /project/docker-compose/nginx/conf/:/etc/nginx/conf.d/
+      # 日志文件
+      - /project/docker-compose/nginx/logs/:/var/log/nginx/
+      # 映射nginx的静态文件到容器里
+      - /project/docker-compose/nginx/webroot/:/webroot/
       #若用到ssl，可以引入
       # - ./ssl:/ssl_certs

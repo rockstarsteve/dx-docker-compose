@@ -12,5 +12,6 @@ mysql：3306
 
 mysql-cluster：3316,3326
 
-nexus：8092
+nexus：8092，5000
 
+nginx：80
