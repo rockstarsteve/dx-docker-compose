@@ -9,5 +9,12 @@
 
 
 
+## 登录密码（或者查看控制台）
+
+```
+sudo docker exec -it nexus bash
+cat /nexus-data/admin.password
+```
+
 
 
