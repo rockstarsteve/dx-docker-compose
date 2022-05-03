@@ -1,0 +1,8 @@
+server {
+  listen 80;
+  server_name hello;
+  root /webroot/hello;
+
+  #access_log /var/log/nginx/hello.log;
+  error_log /var/log/nginx/hello.log;
+}
