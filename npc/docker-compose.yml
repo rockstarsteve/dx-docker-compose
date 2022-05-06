@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mysql:
+    image: ffdfgdfg/npc
+    container_name: npc
+    ports:
+      - '8080:8080'
+    environment:
+      TZ: 'Asia/Shanghai'
+    volumes:
+      - /project/docker-compose/npc/log:/var/log/
+
+
+# 文档
+# https://ehang-io.github.io/nps/#/run?id=%e6%9c%8d%e5%8a%a1%e7%ab%af
