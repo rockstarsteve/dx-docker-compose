@@ -1,0 +1,11 @@
+version: "3"
+services:
+  frps:
+    image: snowdreamtech/frps
+    container_name: frps
+    network_mode: host
+    # ports:
+    #   - '7001:7001'
+    # restart: always
+    volumes:
+      - /project/docker-compose/frps/frps.ini:/etc/frp/frps.ini
