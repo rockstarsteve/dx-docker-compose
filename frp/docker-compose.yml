@@ -1,0 +1,35 @@
+# version: '3'
+# services:
+#   gitlab:
+#     image: gitlab/gitlab-ce
+#     container_name: gitlab
+#     environment:
+#       TZ: 'Asia/Shanghai'
+#       GITLAB_OMNIBUS_CONFIG: |
+#         external_url 'http://127.0.0.1:80' #若有域名可以写域名
+#         gitlab_rails['gitlab_shell_ssh_port'] = 2224
+#     # privileged: true
+#     ports:
+#       - '8091:80'
+#       - '2224:22'
+#     volumes:
+#       #将相关配置映射到当前目录下的config目录
+#       - /project/docker-compose/gitlab/config:/etc/gitlab
+#       #将日志映射到当前目录下的logs目录
+#       - /project/docker-compose/gitlab/logs:/var/log/gitlab
+#       #将数据映射到当前目录下的data目录
+#       - /project/docker-compose/gitlab/opt:/var/opt/gitlab
+
+
+# 初始化密码（也可以查看控制台日志输出）
+# docker exec -it gitlab grep 'Password:' /etc/gitlab/initial_root_password
+
+version: "3"
+services:
+  frp40:
+    image: snowdreamtech/frps
+    container_name: frps
+    network_mode: host
+    # restart: always
+    volumes:
+      - /project/docker-compose/frp/frps.ini:/etc/frp/frps.ini
