@@ -3,11 +3,11 @@ server.name: kibana
 server.host: "0.0.0.0"
 #
 # 这边设置自己es的地址，
-elasticsearch.hosts: [ "http://127.0.0.1:9200" ]
+elasticsearch.hosts: [ "http://localhost:9200" ]
 elasticsearch.username: 'kibana'
 elasticsearch.password: '123456'
 # # 显示登陆页面
 xpack.monitoring.ui.container.elasticsearch.enabled: true
 # 开启中文模式
-i18n.locale: "zh-CN"
+# i18n.locale: "zh-CN"
 
