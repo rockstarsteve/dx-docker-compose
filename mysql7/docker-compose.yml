@@ -1,0 +1,14 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql7                                        # 容器名为'mysql'
+    volumes:                                                     # 数据卷挂载路径设置,将本机目录映射到容器目录
+      - "/project/docker-compose/mysql7/data:/var/lib/mysql"
+      - "/project/docker-compose/mysql7/conf:/etc/mysql/conf.d"
+    environment:
+      TZ: 'Asia/Shanghai'
+      MYSQL_ROOT_PASSWORD: root         # 设置root用户密码
+      MYSQL_DATABASE: mallplusbak              # 初始化的数据库名称
+    ports:                              # 映射端口
+      - "3306:3306"
