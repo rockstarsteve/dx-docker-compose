@@ -9,10 +9,10 @@ services:
       - 443:443
     volumes:
       # 映射nginx的配置文件到容器里
-      - /project/docker-compose/nginx/conf/:/etc/nginx/conf.d/
+      - ./conf/:/etc/nginx/conf.d/
       # 日志文件
-      - /project/docker-compose/nginx/logs/:/var/log/nginx/
+      - ./logs/:/var/log/nginx/
       # 映射nginx的静态文件到容器里
-      - /project/docker-compose/nginx/webroot/:/webroot/
+      - ./webroot/:/webroot/
       #若用到ssl，可以引入
-      - /project/docker-compose/nginx/ssl/:/ssl/
+      - ./ssl/:/ssl/

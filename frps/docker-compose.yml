@@ -8,4 +8,4 @@ services:
     #   - '7001:7001'
     # restart: always
     volumes:
-      - /project/docker-compose/frps/frps.ini:/etc/frp/frps.ini
+      - ./frps.ini:/etc/frp/frps.ini

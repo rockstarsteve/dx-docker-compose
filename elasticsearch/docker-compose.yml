@@ -9,8 +9,8 @@ services:
       - "discovery.type=single-node" #以单一节点模式启动
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m" #设置使用jvm内存大小
     volumes:
-      - /project/docker-compose/elasticsearch/plugins:/usr/share/elasticsearch/plugins #插件文件挂载
-      - /project/docker-compose/elasticsearch/data:/usr/share/elasticsearch/data #数据文件挂载
+      - ./plugins:/usr/share/elasticsearch/plugins #插件文件挂载
+      - ./data:/usr/share/elasticsearch/data #数据文件挂载
     ports:
       - 9200:9200 
     # networks:

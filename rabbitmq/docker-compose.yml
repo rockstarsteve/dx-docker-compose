@@ -8,8 +8,8 @@ services:
      RABBITMQ_DEFAULT_USER: admin
      RABBITMQ_DEFAULT_PASS: admin
     volumes:
-      - /project/docker-compose/rabbitmq/data/:/var/lib/rabbitmq/
-      - /project/docker-compose/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+      - ./data/:/var/lib/rabbitmq/
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
     ports:
       - 5672:5672
       - 15672:15672

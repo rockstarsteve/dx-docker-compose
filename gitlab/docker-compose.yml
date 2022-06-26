@@ -14,11 +14,11 @@ services:
       - '2224:22'
     volumes:
       #将相关配置映射到当前目录下的config目录
-      - /project/docker-compose/gitlab/config:/etc/gitlab
+      - ./config:/etc/gitlab
       #将日志映射到当前目录下的logs目录
-      - /project/docker-compose/gitlab/logs:/var/log/gitlab
+      - ./logs:/var/log/gitlab
       #将数据映射到当前目录下的data目录
-      - /project/docker-compose/gitlab/opt:/var/opt/gitlab
+      - ./opt:/var/opt/gitlab
 
 
 # 初始化密码（也可以查看控制台日志输出）

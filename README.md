@@ -26,5 +26,5 @@ elasticsearch：9200
 
 kibana：5601
 
-
+opengauss：15432
 

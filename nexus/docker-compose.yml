@@ -10,4 +10,4 @@ services:
     environment:
       TZ: Asia/Shanghai
     volumes:
-      - /project/docker-compose/nexus/data:/nexus-data
+      - ./data:/nexus-data
