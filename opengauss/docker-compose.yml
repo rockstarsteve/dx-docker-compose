@@ -9,4 +9,4 @@ services:
     #   - /project/docker-compose/redis/datadir:/data
     #   - /project/docker-compose/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
     ports:
-      - 15432:15432
+      - 15432:5432
