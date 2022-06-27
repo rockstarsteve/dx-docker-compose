@@ -2,6 +2,7 @@ version: '3'
 services:
   minio:
     image: minio/minio
+    container_name: minio
     hostname: "minio"
     ports:
       - 9000:9000 # api 端口
