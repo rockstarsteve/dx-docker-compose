@@ -1,12 +1,11 @@
 version: '3'
 services:
-  redis:
+  opengauss:
     image: enmotech/opengauss:3.0.0
     container_name: opengauss
     environment:
       GS_PASSWORD: Enmo@123
-    # volumes:
-    #   - /project/docker-compose/redis/datadir:/data
-    #   - /project/docker-compose/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
+    volumes:
+      - ./data:/var/lib/opengauss/data
     ports:
       - 15432:5432
