@@ -29,3 +29,5 @@ kibana：5601
 opengauss：15432
 
 minio：9000
+
+activemq：61613，61616，8161

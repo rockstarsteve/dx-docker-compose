@@ -2,7 +2,6 @@ version: '3.0'
 services:
   activemq:
     image: webcenter/activemq:5.14.3
-    restart: always
     ports:
       - 61613:61613
       - 61616:61616
@@ -19,3 +18,4 @@ services:
       - ACTIVEMQ_CONFIG_MAXMEMORY=2048
       - TZ=Asia/Shanghai
 
+# 控制端访问路径： localhost:8161
