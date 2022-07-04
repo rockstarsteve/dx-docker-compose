@@ -1,0 +1,21 @@
+version: '3.0'
+services:
+  activemq:
+    image: webcenter/activemq:5.14.3
+    restart: always
+    ports:
+      - 61613:61613
+      - 61616:61616
+      - 8161:8161
+    #持久化
+    volumes:
+      - ./data:/data/activemq
+      - ./log:/var/log/activemq
+    #环境变量
+    environment:
+      - ACTIVEMQ_ADMIN_LOGIN=admin
+      - ACTIVEMQ_ADMIN_PASSWORD=admin
+      - ACTIVEMQ_CONFIG_MINMEMORY=512
+      - ACTIVEMQ_CONFIG_MAXMEMORY=2048
+      - TZ=Asia/Shanghai
+
