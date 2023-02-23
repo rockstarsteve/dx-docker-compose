@@ -1,0 +1,9 @@
+version: '3'
+services:
+  zookeeper:
+    image: zookeeper:3.8.1
+    container_name: zookeeper3.8.1    # 容器名为'zookeeper3.8.1'
+    environment:
+      TZ: 'Asia/Shanghai'
+    ports:                            # 映射端口
+      - "2181:2181"
